@@ -50,3 +50,49 @@
 - [ ] Environment variables set
 - [ ] File permissions correct
 - [ ] Node.js version compatible 
+
+## 📝 Steps to Create Your `.env.production`:
+
+1. **Rename the file:**
+   ```bash
+   mv env.production.template .env.production
+   ```
+
+2. **Generate a secure JWT secret:**
+   ```bash
+   node -e "console.log(require('crypto').randomBytes(64).toString('hex'))"
+   ```
+
+3. **Update the values in `.env.production`:**
+
+### 🔑 Key Variables to Replace:
+
+**Database Configuration:**
+- `DB_HOST` - Usually `localhost` for cPanel
+- `DB_USER` - Your cPanel MySQL username
+- `DB_PASSWORD` - Your cPanel MySQL password  
+- `DB_NAME` - Your cPanel MySQL database name
+
+**Security Keys:**
+- `JWT_SECRET` - Use the generated secret from step 2
+- `NEXTAUTH_SECRET` - Generate another random string
+- `UPLOAD_SECRET` - Generate another random string
+
+**Domain Configuration:**
+- `NEXTAUTH_URL` - Your actual domain (e.g., `https://munchhaven.com`)
+- `NEXT_PUBLIC_APP_URL` - Your actual domain
+- `yourdomain.com` - Replace with your actual domain
+
+## 📋 Example of Completed Values:
+
+```env
+DB_HOST=localhost
+DB_USER=munchhaven_user
+DB_PASSWORD=StrongPassword123!
+DB_NAME=munchhaven_db
+JWT_SECRET=a1b2c3d4e5f6g7h8i9j0k1l2m3n4o5p6q7r8s9t0u1v2w3x4y5z6
+NEXTAUTH_URL=https://munchhaven.com
+NEXT_PUBLIC_APP_URL=https://munchhaven.com
+```
+
+Once you've updated the `.env.production` file with your actual values, you can proceed with the cPanel deployment using the guide I created earlier! 
