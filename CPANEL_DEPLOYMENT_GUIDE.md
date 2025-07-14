@@ -15,21 +15,27 @@ pnpm build
 ### 1.2 Create Production Environment File
 Create a `.env.production` file in your project root:
 ```env
-# Database Configuration
-DB_HOST=your_database_host
-DB_USER=your_database_user
-DB_PASSWORD=your_database_password
-DB_NAME=your_database_name
+DB_HOST=localhost
+DB_USER=rkvopgft_munchhaven
+DB_PASSWORD=IKm$Q.X$FA]-7H{q
+DB_NAME=rkvopgft_munchhaven
 
-# JWT Secret
-JWT_SECRET=your_jwt_secret_key_here
+# Generate a strong secret for each of these (see below)
+JWT_SECRET=ebf06b618430dbc3c6d88509c0d42814cf92908d10c828317d402dbf8a15639504c30937778d69109348295e9b9dc64b57bbdeeaa178e1eae914eeb7fef66b75
+NEXTAUTH_SECRET=fdf4f649e5847d524abbaa9b23c841cd67a333eeaf4dcdaae1498aa149695c46e9e1374a737af75f051d50df8cd07998fb9ea2d1da59d1541b62e992df26da36
+UPLOAD_SECRET=cfa00be5692b3f830828795cb0c096482cecd268d65d22f8c252c6797c8f284e1215e2bd786edb66487cec75f319534fa912c53cd332e360b41023f72183bca8
 
-# Next.js Configuration
-NEXTAUTH_URL=https://yourdomain.com
-NEXTAUTH_SECRET=your_nextauth_secret_here
+NODE_ENV=production
+NEXTAUTH_URL=https://munchhaven.co.ke
+NEXT_PUBLIC_APP_URL=https://munchhaven.co.ke
+NEXT_PUBLIC_APP_NAME=MunchHaven
 
-# Upload Configuration
-UPLOAD_SECRET=your_upload_secret_here
+MAX_FILE_SIZE=5242880
+UPLOAD_DIR=public/uploads
+NEXT_PUBLIC_ENABLE_HTTPS=true
+NODE_OPTIONS=--max-old-space-size=2048
+LOG_LEVEL=info
+ENABLE_DEBUG_LOGS=false
 ```
 
 ### 1.3 Create package-lock.json (if using npm)
